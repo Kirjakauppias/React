@@ -1,0 +1,20 @@
+# node versio -> docker container
+FROM node:18-alpine
+
+# kansio koodeille
+WORKDIR /app
+
+# kopioidaan package ja package-lock
+COPY package*.json ./
+
+# asennetaan paketit
+RUN npm install
+
+#kopioidaan tiedostot oikean koneen ja virtuaalikoneen välillä
+COPY . .
+
+# portti, josta saadaan yhteys
+EXPOSE 3000
+
+#käynnistää React kehitysympäristön containerissä
+CMD ["npm", "start"]
