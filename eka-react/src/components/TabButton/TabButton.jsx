@@ -2,6 +2,8 @@ import styles from './TabButton.module.css';
 
 const TabButton = ({ children, onSelect}) =>  {
 
+    console.log("TabButton EXECUTING " + children);
+
     return (
 
             <li>
